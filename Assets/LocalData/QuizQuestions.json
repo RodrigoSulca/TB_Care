@@ -1,0 +1,38 @@
+[
+  {
+    "question": "¿Cuál es la forma más común de transmisión de la tuberculosis?",
+    "options": [
+      "A) A través del aire al toser o estornudar",
+      "B) Por compartir comida",
+      "C) Por contacto con la piel"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "¿Qué debes hacer si olvidas una dosis de tu medicamento contra la tuberculosis?",
+    "options": [
+      "A) Tomar doble dosis después",
+      "B) Seguir con la siguiente dosis y avisar al médico",
+      "C) Dejar de tomar el tratamiento"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "¿Qué hábito favorece la recuperación durante el tratamiento de la tuberculosis?",
+    "options": [
+      "A) Dormir lo menos posible",
+      "B) Alimentarse bien y descansar",
+      "C) Evitar beber agua"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "¿Por qué es importante terminar todo el tratamiento aunque te sientas mejor?",
+    "options": [
+      "A) Para evitar que la enfermedad regrese",
+      "B) Para ahorrar medicamentos",
+      "C) Porque los síntomas ya no importan"
+    ],
+    "answer": 0
+  }
+]
