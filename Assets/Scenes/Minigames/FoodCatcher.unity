@@ -1954,7 +1954,7 @@ MonoBehaviour:
   winPoints: 300
   foodSpawner: {fileID: 37955593}
   playerController: {fileID: 1558534513}
-  playerStats: {fileID: 11400000, guid: 6795c7efa3b140b4c9f7f272ab148e70, type: 2}
+  playerStats: {fileID: 11400000, guid: 89522d00dfe321f40ba57f6e30827bcc, type: 2}
 --- !u!4 &1090981140
 Transform:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class ProfileManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        pointsTxt.text = $"Puntos: {playerStats.totalPoints.ToString()}";
+        pointsTxt.text = $"Puntos: {playerStats.totalCoins}";
     }
 
     public void ChangeScene()

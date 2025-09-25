@@ -24,7 +24,7 @@ public class HomeManager : MonoBehaviour
 
     void Update()
     {
-        pointsTxt.text = playerStats.totalPoints.ToString();
+        pointsTxt.text = playerStats.totalCoins.ToString();
     }
     public void ChangeScene(string sceneName)
     {
@@ -38,7 +38,7 @@ public class HomeManager : MonoBehaviour
 
     public void AddPoints(int cantPoints)
     {
-        playerStats.totalPoints += cantPoints;
+        playerStats.totalCoins += cantPoints;
         questButton.interactable = false;
     }
 }

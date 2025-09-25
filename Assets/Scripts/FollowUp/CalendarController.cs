@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CalendarController : MonoBehaviour
 {
@@ -34,6 +35,11 @@ public class CalendarController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
     private void SpawnMedicineBox(Medicine actualMed)

@@ -164,6 +164,7 @@ MonoBehaviour:
   finalMsgs:
   - Lo haras mejor la proxima
   - Bien hecho!
+  playerStats: {fileID: 11400000, guid: 89522d00dfe321f40ba57f6e30827bcc, type: 2}
 --- !u!4 &32000379
 Transform:
   m_ObjectHideFlags: 0

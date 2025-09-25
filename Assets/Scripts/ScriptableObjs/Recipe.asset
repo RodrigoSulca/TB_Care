@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Recipe
   m_EditorClassIdentifier: 
   medicines:
-  - name: Test
+  - name: Paracetamol
     hoursXDay:
-    - 17:20
-    days: 1
+    - 23:50
+    days: 3

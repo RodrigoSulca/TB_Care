@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "ProjectoTesis.sln"
+    "dotnet.defaultSolution": "ProyectoTesis.sln"
 }

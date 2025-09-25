@@ -27,7 +27,7 @@ public class CheckMedicine : MonoBehaviour
         if (take)
         {
             RandomMsg(encourageMsgs);
-            playerStats.totalPoints += coins;
+            playerStats.totalCoins += coins;
         }
         else
         {

@@ -18,6 +18,7 @@ public class QuizController : MonoBehaviour
     public int answerId;
     public int correctAnswers;
     public string[] finalMsgs;
+    public PlayerStats playerStats;
     void Start()
     {
         LoadQuestions();
@@ -66,11 +67,15 @@ public class QuizController : MonoBehaviour
     {
         finalPanel.SetActive(true);
         answersTxt.text = $"{correctAnswers}/{questions.Length}";
-        if (correctAnswers <= questions.Length / 2) {
+        if (correctAnswers <= questions.Length / 2)
+        {
             finalMsgTxt.text = finalMsgs[0];
-        } else if (correctAnswers > questions.Length / 2){
+        }
+        else if (correctAnswers > questions.Length / 2)
+        {
             finalMsgTxt.text = finalMsgs[1];
         }
+        playerStats.totalCoins += correctAnswers * 10;
     }
     private void LoadQuestions()
     {

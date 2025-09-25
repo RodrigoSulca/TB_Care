@@ -102,7 +102,7 @@ MonoBehaviour:
   - Sigue asi! Ganas 100 monedas
   motivationalMsgs:
   - Ten mas cuidado!
-  playerStats: {fileID: 11400000, guid: 6795c7efa3b140b4c9f7f272ab148e70, type: 2}
+  playerStats: {fileID: 11400000, guid: 89522d00dfe321f40ba57f6e30827bcc, type: 2}
   calendarController: {fileID: 0}
 --- !u!1 &1113748256120103545
 GameObject:

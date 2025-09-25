@@ -86,17 +86,17 @@ public class FoodCatcher : MonoBehaviour
         {
             resultTxt.text = "Felicidades!";
             winPointsTxt.text = $"Puntos por victoria: {winPoints.ToString()}";
-            playerStats.totalPoints += winPoints;
+            playerStats.totalCoins += winPoints;
         }
         else
         {
             resultTxt.text = "Vuelve a intentarlo";
         }
         gamePointsTxt.text = $"Puntos conseguidos: {playerController.totalPoints.ToString()}";
-        playerStats.totalPoints += playerController.totalPoints;
+        playerStats.totalCoins += playerController.totalPoints;
         playerStats.dailyMG += 1;
         playerController.win = true;
-        Debug.Log(playerStats.totalPoints);
+        Debug.Log(playerStats.totalCoins);
     }
 
     public void ChangeScene()
