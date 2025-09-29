@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 338784569}
   - component: {fileID: 338784568}
   m_Layer: 5
-  m_Name: HoursButton
+  m_Name: SetHoursButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,7 +330,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 338784569}
   m_OnClick:
     m_PersistentCalls:
@@ -2922,6 +2922,7 @@ MonoBehaviour:
   medicineName: {fileID: 1270986653}
   timesXDay: {fileID: 662890069}
   days: {fileID: 655769938}
+  setHours: {fileID: 338784568}
   createRecipe: {fileID: 1415936920}
   hourPref: {fileID: 463512325896770647, guid: 9bc74021cae870242a243439b5ec3101, type: 3}
   hoursBox: {fileID: 539419027}

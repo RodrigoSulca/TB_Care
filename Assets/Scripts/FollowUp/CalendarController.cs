@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,10 +11,12 @@ public class CalendarController : MonoBehaviour
     public GameObject medicineBox;
     public Transform canvas;
     public bool boxActive;
+    public TMP_Text[] medicinesTxt;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        pendingMed = new List<Medicine>(recipe.medicines);
+        SetMedicines();
+        pendingMed = new List<Medicine>(recipe.dayMedicines);
     }
 
     // Update is called once per frame
@@ -30,6 +33,7 @@ public class CalendarController : MonoBehaviour
                 {
                     SpawnMedicineBox(medicine);
                     pendingMed.Remove(medicine);
+                    recipe.dayMedicines.Remove(medicine);
                     boxActive = true;
                     break;
                 }
@@ -47,5 +51,13 @@ public class CalendarController : MonoBehaviour
         CheckMedicine checkMedicine = Instantiate(medicineBox, canvas).GetComponent<CheckMedicine>();
         checkMedicine.medicine = actualMed;
         checkMedicine.calendarController = GetComponent<CalendarController>();
+    }
+
+    private void SetMedicines()
+    {
+        for (int i = 0; i < recipe.medicines.Count; i++)
+        {
+            medicinesTxt[i].text = $"{recipe.medicines[i].name}\n {recipe.medicines[i].hoursXDay[0]}";
+        }
     }
 }

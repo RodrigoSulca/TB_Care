@@ -76,6 +76,9 @@ public class QuizController : MonoBehaviour
             finalMsgTxt.text = finalMsgs[1];
         }
         playerStats.totalCoins += correctAnswers * 10;
+        playerStats.dailyMG += 1;
+        PlayerPrefs.SetInt("coins", playerStats.totalCoins);
+        PlayerPrefs.Save();
     }
     private void LoadQuestions()
     {

@@ -12,8 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c22574a80fb5c24db37c7f6a364a62b, type: 3}
   m_Name: Recipe
   m_EditorClassIdentifier: 
-  medicines:
-  - name: Paracetamol
-    hoursXDay:
-    - 23:50
-    days: 3
+  medicines: []
+  dayMedicines: []

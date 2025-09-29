@@ -96,6 +96,8 @@ public class FoodCatcher : MonoBehaviour
         playerStats.totalCoins += playerController.totalPoints;
         playerStats.dailyMG += 1;
         playerController.win = true;
+        PlayerPrefs.SetInt("coins", playerStats.totalCoins);
+        PlayerPrefs.Save();
         Debug.Log(playerStats.totalCoins);
     }
 

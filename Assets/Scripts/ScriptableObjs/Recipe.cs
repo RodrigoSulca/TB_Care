@@ -5,4 +5,5 @@ using System.Collections.Generic;
 public class Recipe : ScriptableObject
 {
     public List<Medicine> medicines;
+    public List<Medicine> dayMedicines;
 }

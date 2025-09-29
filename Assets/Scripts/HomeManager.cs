@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
+using NUnit.Framework;
 
 public class HomeManager : MonoBehaviour
 {
@@ -12,9 +14,13 @@ public class HomeManager : MonoBehaviour
     public TMP_Text pointsTxt;
     [Header("Config")]
     public PlayerStats playerStats;
+    private static bool loadStats;
 
     void Start()
     {
+        PlayerPrefs.SetInt("coins", playerStats.totalCoins);
+        PlayerPrefs.Save();
+
         questSlider.value = playerStats.dailyMG;
         if (questSlider.value >= questSlider.maxValue)
         {
@@ -40,5 +46,27 @@ public class HomeManager : MonoBehaviour
     {
         playerStats.totalCoins += cantPoints;
         questButton.interactable = false;
+    }
+
+
+    private void LoadStats()
+    {
+        string path = Application.persistentDataPath + "/stats.json";
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            JsonUtility.FromJsonOverwrite(json, playerStats);
+        }
+        else
+        {
+            print("No hay datos guardados");
+        }
+    }
+
+    void OnApplicationQuit()
+    {
+        string json = JsonUtility.ToJson(playerStats);
+        File.WriteAllText(Application.persistentDataPath + "/stats.json", json);
+        Debug.Log(Application.persistentDataPath + "/stats.json");
     }
 }

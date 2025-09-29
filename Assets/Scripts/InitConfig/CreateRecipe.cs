@@ -11,6 +11,7 @@ public class CreateRecipe : MonoBehaviour
     public TMP_InputField medicineName;
     public TMP_InputField timesXDay;
     public TMP_InputField days;
+    public Button setHours;
     public Button createRecipe;
 
     [Header("Config")]
@@ -29,6 +30,15 @@ public class CreateRecipe : MonoBehaviour
         else
         {
             createRecipe.interactable = false;
+        }
+
+        if (timesXDay.text != "")
+        {
+            setHours.interactable = true;
+        }
+        else
+        {
+            setHours.interactable = false;
         }
     }
 
@@ -71,6 +81,7 @@ public class CreateRecipe : MonoBehaviour
         {
             recipe.medicines.Add(medicine);
         }
+        SaveRecipe();
         SceneManager.LoadScene(sceneName);
     }
 
