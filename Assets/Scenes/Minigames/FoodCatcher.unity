@@ -852,7 +852,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Atrapa los alimentos que debes consumir para combatir la tuberculosis
+  m_text: "Atrapa las pastillas evitando los alientos da\xF1inos para el tratamiento
+    contra tuberculosis"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1942,7 +1943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startGame: 1
   timerImg: {fileID: 204544200}
-  gameTime: 10
+  gameTime: 30
   tutorialPanel: {fileID: 1271647417}
   gamePanel: {fileID: 1502028075}
   resultsPanel: {fileID: 1980350829}
@@ -2682,7 +2683,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Atrapa alimentos
+  m_text: Atrapa pastillas
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3041,8 +3042,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Recuerda que debes consumir alimentos ricos en proteinas y evitar alimentos
-    o bebidas azucaradas
+  m_text: Recuerda que debes consumir tus medicamentos a la hora indicada y evitar
+    alimentos o bebidas azucaradas
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -76,6 +76,7 @@ public class FoodCatcher : MonoBehaviour
 
     public void ShowResults()
     {
+        Time.timeScale = 0;
         ClearFood();
         gamePanel.SetActive(false);
         foodSpawner.StopAllCoroutines();
@@ -103,6 +104,7 @@ public class FoodCatcher : MonoBehaviour
 
     public void ChangeScene()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Minigames");
     }
 
