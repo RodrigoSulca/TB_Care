@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class QuizController : MonoBehaviour
 {
@@ -12,23 +13,29 @@ public class QuizController : MonoBehaviour
     public TMP_Text questionTxt;
     public TMP_Text[] optionTxts;
     public Question[] questions;
+    public Slider timeSlider;
     [Header("Config")]
+    public bool inGame;
     public TextAsset quizJson;
     public int questionIndex;
     public int answerId;
     public int correctAnswers;
+    public float questionTime;
     public string[] finalMsgs;
     public PlayerStats playerStats;
+    private float timer;
     void Start()
     {
         LoadQuestions();
-        NextQuestion();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (inGame)
+        {
+            QuestionTimer();
+        }
     }
 
     public void CheckAnswer(int userAnswer)
@@ -45,10 +52,19 @@ public class QuizController : MonoBehaviour
 
         NextQuestion();
     }
+
+    public void StartQuiz()
+    {
+        NextQuestion();
+        inGame = true;
+    }
     private void NextQuestion()
     {
+        timer = 0;
+        timeSlider.value = timeSlider.maxValue;
         if (questionIndex < questions.Length)
         {
+            timeSlider.maxValue = questionTime;
             questionTxt.text = questions[questionIndex].question;
             answerId = questions[questionIndex].answer;
             for (int i = 0; i < questions[questionIndex].options.Length; i++)
@@ -92,6 +108,18 @@ public class QuizController : MonoBehaviour
         {
             Debug.LogError("No se encontró el archivo quiz.json en Resources.");
         }
+    }
+
+    private void QuestionTimer()
+    {
+        if (timeSlider.value <= 0)
+        {
+            NextQuestion();
+        }
+
+        timer += Time.deltaTime;
+        float progress = timer / questionTime;
+        timeSlider.value = Mathf.Lerp(timeSlider.maxValue, 0, progress);
     }
 
     public void ExitGame()
