@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class QuizController : MonoBehaviour
     public TMP_Text questionTxt;
     public TMP_Text[] optionTxts;
     public Question[] questions;
+    public GameObject questionResult;
     public Slider timeSlider;
     [Header("Config")]
     public bool inGame;
@@ -22,10 +24,13 @@ public class QuizController : MonoBehaviour
     public int correctAnswers;
     public float questionTime;
     public string[] finalMsgs;
+    public Sprite[] resultsIcons;
+    private Image resultImg;
     public PlayerStats playerStats;
     private float timer;
     void Start()
     {
+        resultImg = questionResult.GetComponent<Image>();
         LoadQuestions();
     }
 
@@ -44,13 +49,15 @@ public class QuizController : MonoBehaviour
         {
             Debug.Log("Correcto");
             correctAnswers++;
+            StartCoroutine(ResultAnswer(true));
         }
         else
         {
             Debug.Log("Incorrecto");
+            StartCoroutine(ResultAnswer(false));
         }
 
-        NextQuestion();
+        //NextQuestion();
     }
 
     public void StartQuiz()
@@ -77,6 +84,24 @@ public class QuizController : MonoBehaviour
         {
             ShowResults();
         }
+    }
+
+    private IEnumerator ResultAnswer(bool isCorrect)
+    {
+        if (isCorrect)
+        {
+            resultImg.sprite = resultsIcons[0];
+        }
+        else
+        {
+            resultImg.sprite = resultsIcons[1];
+        }
+        inGame = false;
+        questionResult.SetActive(true);
+        yield return new WaitForSeconds(1);
+        questionResult.SetActive(false);
+        inGame = true;
+        NextQuestion();
     }
 
     private void ShowResults()

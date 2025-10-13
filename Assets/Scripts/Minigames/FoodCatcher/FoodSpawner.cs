@@ -7,14 +7,24 @@ public class FoodSpawner : MonoBehaviour
     public float sizeY;
     public float spawnInterval;
     public GameObject[] foods;
+    public BacteriumGController bacteriumGController;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(SpawnFood());
     }
+
+    void Update()
+    {
+        if(bacteriumGController.timerSlider.value <= 0.5)
+        {
+            spawnInterval = 0.8f;
+        }
+    }
     private IEnumerator SpawnFood()
     {
-        int num = Random.Range(0,2);
+        int num = Random.Range(0,foods.Length);
 
         float x = Random.Range(-sizeX / 2f, sizeX / 2f);
         float y = Random.Range(-sizeY / 2f, sizeY / 2f);

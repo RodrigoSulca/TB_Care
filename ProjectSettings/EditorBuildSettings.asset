@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/Quiz.unity
     guid: 774eee42e1aaf83469d810e23a30c3a6
+  - enabled: 1
+    path: Assets/Scenes/Minigames/BacteriumKiller.unity
+    guid: 27c28a6f7d06dc144a5a6ae12d8c80d9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Atrapa pastillas
+  m_text: Bacterias
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -973,7 +973,7 @@ GameObject:
   - component: {fileID: 681212350}
   - component: {fileID: 681212349}
   m_Layer: 5
-  m_Name: FoodCatcherB
+  m_Name: BacteriumButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -996,8 +996,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 152.00352, y: 183}
-  m_SizeDelta: {x: 172.9357, y: 43.0213}
+  m_AnchoredPosition: {x: 178, y: 183}
+  m_SizeDelta: {x: 120.9781, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &681212349
 MonoBehaviour:
@@ -1052,7 +1052,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: FoodCatcher
+          m_StringArgument: BacteriumKiller
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &681212350
