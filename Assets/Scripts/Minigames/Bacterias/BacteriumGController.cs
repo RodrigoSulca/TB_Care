@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ public class BacteriumGController : MonoBehaviour
     [Header("Config")]
     public Transform originPos;
     public Image dmgLoansImg;
+    public TMP_Text pointsTxt;
     public float duration;
     public GameObject finishPanel;
     public int points;
@@ -30,6 +32,7 @@ public class BacteriumGController : MonoBehaviour
     {
         if (inGame)
         {
+            pointsTxt.text = points.ToString();
             Timer();
 
             if (Input.GetMouseButtonDown(0) && canShoot)

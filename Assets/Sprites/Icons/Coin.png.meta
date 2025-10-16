@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8433be7b428a6be4ba17ebbda3ea9009
+guid: 2424347e2f262b0488c3f2b95813c2aa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4050190351422356727
-    second: pescado_0
+      213: 6481541236695381158
+    second: moneda-de-dolar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pescado_0
+      name: moneda-de-dolar_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1024
+        width: 511
+        height: 511
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7fc7e317aaa253830800000000000000
-      internalID: 4050190351422356727
+      spriteID: 6a436420a6f03f950800000000000000
+      internalID: 6481541236695381158
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pescado_0: 4050190351422356727
+      moneda-de-dolar_0: 6481541236695381158
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e7e339cc314c8428a15c2e5dc36d30, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  totalCoins: 150
+  totalCoins: 0
   dailyMG: 0
