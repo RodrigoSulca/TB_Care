@@ -26,6 +26,7 @@ public class BacteriumGController : MonoBehaviour
 
     void Start()
     {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         Time.timeScale = 0;
     }
     void Update()

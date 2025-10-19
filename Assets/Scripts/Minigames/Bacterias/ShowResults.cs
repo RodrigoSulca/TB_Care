@@ -31,7 +31,7 @@ public class ShowResults : MonoBehaviour
         if (bacteriumGController.winGame)
         {
             resultTxts[0].text = "Felicidades!";
-            resultTxts[1].text = "Lograste eliminar a las bacterias";
+            resultTxts[1].text = "Lograste eliminar las bacterias de los pulmones";
             totalPoints += 100;
         }
         else

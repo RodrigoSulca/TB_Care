@@ -1,0 +1,23 @@
+# ninja log v5
+72	6214	7825432874404224	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	5f381c17ecf11fa9
+88	6779	7825432880169874	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	183a2854a22a2203
+1	6340	7825432874962967	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	2bf0e6ce0a4e5c98
+44	6424	7825432875651363	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	1ef91eec5e3e17c4
+78	6362	7825432874564039	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	fff7c9bc54780b4e
+58	6371	7825432874992889	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	1fb1b61370a451b9
+65	6487	7825432876758611	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	42173014e19f5437
+50	6503	7825432877272314	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	2ba4efead09f26b
+6239	6922	7825432881671748	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	472fbdfef89b16d1
+6780	7026	7825432882472003	D:/Documents/Seminario1/ProyectoTesis/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/4k5ai696/obj/arm64-v8a/libgame.so	6ec1229907135d1f
+6923	7086	7825432883399908	D:/Documents/Seminario1/ProyectoTesis/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/4k5ai696/obj/arm64-v8a/libswappywrapper.so	613f5d39182938da
+62	2178	7825500954547541	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	5f381c17ecf11fa9
+74	2189	7825500954597409	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	fff7c9bc54780b4e
+31	2232	7825500954966436	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	2bf0e6ce0a4e5c98
+47	2245	7825500954946490	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	1fb1b61370a451b9
+24	2263	7825500955051310	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	1ef91eec5e3e17c4
+81	2358	7825500956378984	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	183a2854a22a2203
+56	2364	7825500956378984	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	42173014e19f5437
+36	2374	7825500956558501	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	2ba4efead09f26b
+2374	2598	7825500958797123	D:/Documents/Seminario1/ProyectoTesis/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/4k5ai696/obj/arm64-v8a/libgame.so	6ec1229907135d1f
+2179	2611	7825500958984372	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	472fbdfef89b16d1
+2611	2729	7825500960184767	D:/Documents/Seminario1/ProyectoTesis/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/4k5ai696/obj/arm64-v8a/libswappywrapper.so	613f5d39182938da
