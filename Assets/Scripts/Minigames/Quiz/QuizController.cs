@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,10 +10,11 @@ public class QuizController : MonoBehaviour
 {
     [Header("UI")]
     public GameObject finalPanel;
-    public TMP_Text answersTxt;
+    public TMP_Text percentageTxt;
     public TMP_Text finalMsgTxt;
     public TMP_Text questionTxt;
     public TMP_Text[] optionTxts;
+    public Image correctCircle;
     public Question[] questions;
     public GameObject questionResult;
     public Slider timeSlider;
@@ -107,7 +109,10 @@ public class QuizController : MonoBehaviour
     private void ShowResults()
     {
         finalPanel.SetActive(true);
-        answersTxt.text = $"{correctAnswers}/{questions.Length}";
+        float decimalPorcent = (float)correctAnswers / questions.Length;
+        correctCircle.fillAmount = decimalPorcent;
+        float porcent = (float)Math.Floor(decimalPorcent * 100);
+        percentageTxt.text = $"{porcent}%";
         if (correctAnswers <= questions.Length / 2)
         {
             finalMsgTxt.text = finalMsgs[0];

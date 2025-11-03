@@ -103,6 +103,7 @@ MonoBehaviour:
   motivationalMsgs:
   - Ten mas cuidado!
   playerStats: {fileID: 11400000, guid: 89522d00dfe321f40ba57f6e30827bcc, type: 2}
+  recipe: {fileID: 11400000, guid: 98a2a5d41e07ce642bbae49eb17af442, type: 2}
   calendarController: {fileID: 0}
 --- !u!1 &1113748256120103545
 GameObject:

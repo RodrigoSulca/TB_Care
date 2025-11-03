@@ -17,6 +17,8 @@ public class CreateRecipe : MonoBehaviour
     [Header("Config")]
     public GameObject hourPref;
     public Transform hoursBox;
+    public GameObject medicinePref;
+    public Transform medicinesBox;
     public List<string> hoursXDay;
     public List<Medicine> newMedicines;
     public Recipe recipe;
@@ -56,6 +58,7 @@ public class CreateRecipe : MonoBehaviour
         timesXDay.text = "";
         days.text = "";
         hoursXDay.Clear();
+        MedicinePrefab(medicine);
     }
 
     public void SaveRecipe()
@@ -93,5 +96,13 @@ public class CreateRecipe : MonoBehaviour
             hoursXDay.Add(hour.GetComponentInChildren<TMP_InputField>().text);
             Destroy(hour);
         }
+    }
+
+    private void MedicinePrefab(Medicine medicine)
+    {
+        MedicinePreview preview = Instantiate(medicinePref, medicinesBox).GetComponent<MedicinePreview>();
+        preview.medicineName.text = medicine.name;
+        preview.medicineDays.text = $"{medicine.days.ToString()} dias";
+        preview.medicine = medicine;
     }
 }

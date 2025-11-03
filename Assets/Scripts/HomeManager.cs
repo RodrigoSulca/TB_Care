@@ -9,23 +9,20 @@ public class HomeManager : MonoBehaviour
 {
     [Header("UI")]
     public GameObject dailyQPanel;
-    public Slider questSlider;
-    public Button questButton;
     public TMP_Text pointsTxt;
     [Header("Config")]
     public PlayerStats playerStats;
+    public Quest[] quests;
+    public GameObject questPrefab;
+    public Transform questsBox;
+    public int cantQuests;
     private static bool loadStats;
 
     void Start()
     {
         PlayerPrefs.SetInt("coins", playerStats.totalCoins);
         PlayerPrefs.Save();
-
-        questSlider.value = playerStats.dailyMG;
-        if (questSlider.value >= questSlider.maxValue)
-        {
-            questButton.interactable = true;
-        }
+        SetDailyQuests();
     }
 
     void Update()
@@ -42,13 +39,6 @@ public class HomeManager : MonoBehaviour
         dailyQPanel.SetActive(!dailyQPanel.activeSelf);
     }
 
-    public void AddPoints(int cantPoints)
-    {
-        playerStats.totalCoins += cantPoints;
-        questButton.interactable = false;
-    }
-
-
     private void LoadStats()
     {
         string path = Application.persistentDataPath + "/stats.json";
@@ -60,6 +50,15 @@ public class HomeManager : MonoBehaviour
         else
         {
             print("No hay datos guardados");
+        }
+    }
+
+    private void SetDailyQuests()
+    {
+        for(int i=0; i < cantQuests; i++)
+        {
+            QuestItem questItem = Instantiate(questPrefab, questsBox).GetComponent<QuestItem>();
+            questItem.quest = quests[Random.Range(0, quests.Length)];
         }
     }
 

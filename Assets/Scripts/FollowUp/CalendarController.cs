@@ -10,12 +10,16 @@ public class CalendarController : MonoBehaviour
     public List<Medicine> pendingMed;
     public GameObject medicineBox;
     public Transform canvas;
+    public Transform calendar;
+    public GameObject calendarItem;
     public bool boxActive;
-    public TMP_Text[] medicinesTxt;
+    public TMP_Text dayTxt;
+    public string[] days = { "Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo" };
+    public int dayIndex;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SetMedicines();
+        SetMedicines(dayIndex);
         pendingMed = new List<Medicine>(recipe.dayMedicines);
     }
 
@@ -41,6 +45,21 @@ public class CalendarController : MonoBehaviour
         }
     }
 
+    public void NextDay(bool next)
+    {
+        if (next && dayIndex < days.Length-1)
+        {
+            dayIndex++;
+            SetMedicines(dayIndex);
+        }
+        else if (!next && dayIndex > 0)
+        {
+            dayIndex--;
+            SetMedicines(dayIndex);
+        }
+        dayTxt.text = days[dayIndex];
+    }
+
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -53,11 +72,23 @@ public class CalendarController : MonoBehaviour
         checkMedicine.calendarController = GetComponent<CalendarController>();
     }
 
-    private void SetMedicines()
+    private void SetMedicines(int day)
     {
-        for (int i = 0; i < recipe.medicines.Count; i++)
+        ClearCalendar();
+        foreach (Medicine medicine in recipe.medicines)
         {
-            medicinesTxt[i].text = $"{recipe.medicines[i].name}\n {recipe.medicines[i].hoursXDay[0]}";
+            CalendarItem item = Instantiate(calendarItem, calendar).GetComponent<CalendarItem>();
+            item.medicine = medicine;
+            item.day = day;
         }
+    }
+    
+    private void ClearCalendar()
+    {
+        for (int i = calendar.childCount - 1; i >= 0; i--)
+    {
+        GameObject child = calendar.GetChild(i).gameObject;
+        Destroy(child);
+    }
     }
 }

@@ -1,4 +1,5 @@
 using TMPro;
+using System.IO;
 using UnityEngine;
 
 public class CheckMedicine : MonoBehaviour
@@ -15,6 +16,7 @@ public class CheckMedicine : MonoBehaviour
     public string[] encourageMsgs;
     public string[] motivationalMsgs;
     public PlayerStats playerStats;
+    public Recipe recipe;
     [HideInInspector] public CalendarController calendarController;
     void Start()
     {
@@ -38,6 +40,8 @@ public class CheckMedicine : MonoBehaviour
     public void Close()
     {
         Destroy(gameObject);
+        recipe.dayMedicines.Remove(medicine);
+        SaveRecipe();
         calendarController.boxActive = false;
     }
 
@@ -45,5 +49,12 @@ public class CheckMedicine : MonoBehaviour
     {
         int num = Random.Range(0, messages.Length);
         messageTxt.text = messages[num];
+    }
+
+    private void SaveRecipe()
+    {
+        string json = JsonUtility.ToJson(recipe);
+        File.WriteAllText(Application.persistentDataPath + "/recipe.json", json);
+        Debug.Log(Application.persistentDataPath + "/recipe.json");
     }
 }
