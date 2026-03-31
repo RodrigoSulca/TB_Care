@@ -7,10 +7,10 @@ using UnityEngine.UI;
 
 public class CreateRecipe : MonoBehaviour
 {
-    [Header("InoputFields")]
-    public TMP_InputField medicineName;
-    public TMP_InputField timesXDay;
-    public TMP_InputField days;
+    [Header("InputFields")]
+    [SerializeField] private TMP_InputField nameIF;
+    [SerializeField] private TMP_InputField frequencyIF;
+    [SerializeField] private TMP_InputField daysIF;
     public Button setHours;
     public Button createRecipe;
 
@@ -34,7 +34,7 @@ public class CreateRecipe : MonoBehaviour
             createRecipe.interactable = false;
         }
 
-        if (timesXDay.text != "")
+        if (frequencyIF.text != "")
         {
             setHours.interactable = true;
         }
@@ -49,14 +49,14 @@ public class CreateRecipe : MonoBehaviour
         SetMedicineHours();
         Medicine medicine = new()
         {
-            name = medicineName.text,
+            name = nameIF.text,
             hoursXDay = new List<string>(hoursXDay),
-            days = int.Parse(days.text)
+            days = int.Parse(daysIF.text)
         };
         newMedicines.Add(medicine);
-        medicineName.text = "";
-        timesXDay.text = "";
-        days.text = "";
+        nameIF.text = "";
+        frequencyIF.text = "";
+        daysIF.text = "";
         hoursXDay.Clear();
         MedicinePrefab(medicine);
     }
@@ -71,7 +71,7 @@ public class CreateRecipe : MonoBehaviour
     public void SpawnHours()
     {
         hoursXDay.Clear();
-        for (int i = 0; i < int.Parse(timesXDay.text); i++)
+        for (int i = 0; i < int.Parse(frequencyIF.text); i++)
         {
             GameObject hour = Instantiate(hourPref, hoursBox);
             hour.GetComponentInChildren<TMP_Text>().text = $"{i + 1}.";
