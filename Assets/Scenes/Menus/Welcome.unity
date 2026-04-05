@@ -1112,7 +1112,7 @@ GameObject:
   - component: {fileID: 210370797}
   - component: {fileID: 210370796}
   m_Layer: 5
-  m_Name: PasswordField
+  m_Name: PasswordFieldR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1959,7 +1959,7 @@ GameObject:
   - component: {fileID: 598717380}
   - component: {fileID: 598717379}
   m_Layer: 5
-  m_Name: EmailField
+  m_Name: EmailFieldR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3479,7 +3479,7 @@ GameObject:
   - component: {fileID: 1092066567}
   - component: {fileID: 1092066566}
   m_Layer: 5
-  m_Name: PasswordField
+  m_Name: PasswordFieldL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3794,7 +3794,7 @@ GameObject:
   - component: {fileID: 1223166611}
   - component: {fileID: 1223166610}
   m_Layer: 5
-  m_Name: RegisterButton
+  m_Name: LoginBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4630,7 +4630,7 @@ GameObject:
   - component: {fileID: 1660558477}
   - component: {fileID: 1660558476}
   m_Layer: 5
-  m_Name: EmailField
+  m_Name: EmailFieldL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4945,7 +4945,7 @@ GameObject:
   - component: {fileID: 1671267858}
   - component: {fileID: 1671267857}
   m_Layer: 5
-  m_Name: RegisterButton
+  m_Name: RegisterBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5212,6 +5212,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1933683957}
   - component: {fileID: 1933683956}
+  - component: {fileID: 1933683958}
+  - component: {fileID: 1933683959}
   m_Layer: 0
   m_Name: WelcomeController
   m_TagString: Untagged
@@ -5247,6 +5249,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1933683958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933683955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 574121c7f6813914e85dc60c9750bc84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SupabaseController
+--- !u!114 &1933683959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933683955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b82ad577683ce4485f3ec36efd87a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AccountManager
+  nameField: {fileID: 70522104}
+  ageField: {fileID: 2006870713}
+  emailFieldR: {fileID: 598717379}
+  passwordFieldR: {fileID: 210370796}
+  registerBtn: {fileID: 1671267857}
+  emailFieldL: {fileID: 1660558476}
+  passwordFieldL: {fileID: 1092066566}
+  loginBtn: {fileID: 1223166610}
 --- !u!1 &2006870711
 GameObject:
   m_ObjectHideFlags: 0

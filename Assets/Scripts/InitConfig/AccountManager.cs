@@ -1,41 +1,55 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AccountManager : MonoBehaviour
 {
-    [Header("UI Register/Login")]
+    [Header("UI Register")]
     public TMP_InputField nameField;
     public TMP_InputField ageField;
-    public TMP_InputField emailField;
-    public TMP_InputField passwordField;
-    public Button registerButton;
-    [Header("UI Panels")]
-    public GameObject registerPanel;
-    public GameObject recipePanel;
+    public TMP_InputField emailFieldR;
+    public TMP_InputField passwordFieldR;
+    public Button registerBtn;
 
+    [Header("UI Login")]
+    public TMP_InputField emailFieldL;
+    public TMP_InputField passwordFieldL;
+    public Button loginBtn;
+
+
+    void Start()
+    {
+        registerBtn.onClick.AddListener(RegisterUser);
+        loginBtn.onClick.AddListener(LoginUser);
+    }
     void Update()
     {
-        if(nameField.text.Trim() == ""|| ageField.text.Trim() == ""|| emailField.text.Trim() == ""|| passwordField.text.Trim() == "")
+        if(nameField.text.Trim() == ""|| ageField.text.Trim() == ""|| emailFieldR.text.Trim() == ""|| passwordFieldR.text.Trim() == "")
         {
-            registerButton.interactable = false;
+            registerBtn.interactable = false;
         }
         else
         {
-            registerButton.interactable = true;
+            registerBtn.interactable = true;
         }
     }
     public async void RegisterUser()
     {
-        bool response = await SupabaseController.CreateUser(nameField.text, int.Parse(ageField.text), emailField.text);
+        bool response = await SupabaseController.CreateUser(nameField.text, int.Parse(ageField.text), emailFieldR.text, passwordFieldR.text, DateTime.UtcNow);
         if (response)
         {
-            registerPanel.SetActive(false);
-            recipePanel.SetActive(true);
+            SceneManager.LoadScene("AddMedicine");
         }
-        else
+    }
+
+    public async void LoginUser()
+    {
+        bool response = await SupabaseController.Login(emailFieldL.text, passwordFieldL.text);
+        if (response)
         {
-            
+            SceneManager.LoadScene("AddMedicine");
         }
     }
 }
