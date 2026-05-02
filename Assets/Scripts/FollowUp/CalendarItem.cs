@@ -15,14 +15,14 @@ public class CalendarItem : MonoBehaviour
     void Start()
     {
         medicineName.text = medicine.name;
-        if(day < medicine.days)
+        /*if(day < medicine.days)
         {
             medicineHour.text = medicine.hoursXDay[0];
         }
         else
         {
             Destroy(gameObject);
-        }
+        }*/
         
     }
 

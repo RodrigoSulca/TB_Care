@@ -49,7 +49,19 @@ public class AccountManager : MonoBehaviour
         bool response = await SupabaseController.Login(emailFieldL.text, passwordFieldL.text);
         if (response)
         {
-            SceneManager.LoadScene("AddMedicine");
+            SceneManager.LoadScene("Home");
         }
+    }
+
+    public async void TestLogin()
+    {
+        Debug.Log("login test");
+        emailFieldL.text = "rodrigosulcaram@gmail.com";
+        passwordFieldL.text = "123456";
+        LoginUser();
+    }
+
+    public async void TestGetMed(){
+        await SupabaseController.GetUserMedicines();
     }
 }

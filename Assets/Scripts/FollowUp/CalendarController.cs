@@ -31,7 +31,7 @@ public class CalendarController : MonoBehaviour
 
         foreach (Medicine medicine in pendingMed)
         {
-            if (TimeSpan.TryParse(medicine.hoursXDay[0], out TimeSpan medicineTime))
+            /*if (TimeSpan.TryParse(medicine.hoursXDay[0], out TimeSpan medicineTime))
             {
                 if (medicineTime <= actualTime && !boxActive)
                 {
@@ -41,7 +41,7 @@ public class CalendarController : MonoBehaviour
                     boxActive = true;
                     break;
                 }
-            }
+            }*/
         }
     }
 

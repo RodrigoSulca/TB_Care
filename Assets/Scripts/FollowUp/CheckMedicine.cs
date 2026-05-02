@@ -20,7 +20,7 @@ public class CheckMedicine : MonoBehaviour
     [HideInInspector] public CalendarController calendarController;
     void Start()
     {
-        questionTxt.text = $"Tomaste {medicine.name} a las {medicine.hoursXDay[0]}?";
+        //questionTxt.text = $"Tomaste {medicine.name} a las {medicine.hoursXDay[0]}?";
     }
     public void TakeMedicine(bool take)
     {

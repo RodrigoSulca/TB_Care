@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "name": "TestInputActions",
+    "maps": [
+        {
+            "name": "Test",
+            "id": "b97f0ccc-5013-41f1-8f89-1116fc7c86a0",
+            "actions": [
+                {
+                    "name": "TestLogin",
+                    "type": "Button",
+                    "id": "6b06e71e-2eb8-4fde-ba52-b7c7df768ebc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9a035e21-5139-48fb-9011-a2b3e4c3e5d7",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TestLogin",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

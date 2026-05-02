@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Threading.Tasks;
 using Unity.Notifications.Android;
 using UnityEngine;
 
@@ -30,7 +31,7 @@ public class Notifications : MonoBehaviour
     {
         StartCoroutine(AskPermission());
     }
-    public void CreateNotification(TimeSpan notiTime, Medicine medicine)
+    public void CreateNotification(DateTime notiDate, string hour, Medicine medicine)
     {
         AndroidNotificationChannel androidNotificationChannel = new()
         {
@@ -42,7 +43,14 @@ public class Notifications : MonoBehaviour
 
         AndroidNotificationCenter.RegisterNotificationChannel(androidNotificationChannel);
 
-        DateTime timeToNotify = DateTime.Now.Date + notiTime;
+
+        DateTime timeToNotify = notiDate + TimeSpan.Parse(hour);
+
+        if (timeToNotify <= DateTime.Now)
+        {
+            return;
+        }
+
         AndroidNotification androidNotification = new()
         {
             Title = "Hora de tu medicina 💊",

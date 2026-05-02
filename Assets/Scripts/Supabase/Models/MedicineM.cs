@@ -17,4 +17,7 @@ public class MedicineM : BaseModel
     [Column("notes")]
     public string Notes { get; set; }
 
+    [Column("start_day")]
+    public DateTime StartDay { get; set; }
+
 }

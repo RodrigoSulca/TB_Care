@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ using UnityEngine;
 public class Medicine
 {
     public string name;
-    public List<string> hoursXDay;
-    public int days;
+    public DateTime startDay;
+    public List<ScheduleObj> schedules;
+    public int[] weekdays;
 }

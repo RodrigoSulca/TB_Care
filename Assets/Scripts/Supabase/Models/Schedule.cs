@@ -12,7 +12,7 @@ public class Schedule : BaseModel
     public Guid MedicineId { get; set; }
 
     [Column("time")]
-    public TimeSpan Time { get; set; }
+    public string Time { get; set; }
 
     [Column("weekday")]
     public int[] Weekday { get; set; }

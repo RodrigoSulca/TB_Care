@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
-using Unity.Notifications.Android;
+using System.Threading.Tasks;
 public class NotificationsManager : MonoBehaviour
 {
     public GameObject notificationPref;
@@ -14,49 +13,7 @@ public class NotificationsManager : MonoBehaviour
 
     void Start()
     {
-        SetDailyMedicines();
-        LoadRecipe();
-        pendingMed = new List<Medicine>(recipe.dayMedicines);
-    }
-
-    void Update()
-    {
-        TimeSpan actualTime = DateTime.Now.TimeOfDay;
-        actualTime = new TimeSpan(actualTime.Hours, actualTime.Minutes, 0);
-
-        foreach (Medicine medicine in pendingMed)
-        {
-            if (TimeSpan.TryParse(medicine.hoursXDay[0], out TimeSpan medicineTime))
-            {
-                if (medicineTime == actualTime && !notificationActive)
-                {
-                    SpawnNotification(medicine);
-                    pendingMed.Remove(medicine);
-                    notificationActive = true;
-                    break;
-                }
-                else if(medicineTime > actualTime && !setnotifications)
-                {
-                    Notifications.Instance.CreateNotification(medicineTime, medicine);
-                }
-            }
-        }
-        setnotifications = true;
-    }
-
-    private void SetDailyMedicines()
-    {
-        string today = DateTime.Now.ToString("yyyy-MM-dd");
-        string lastDate = PlayerPrefs.GetString("LastMessageDate", "");
-
-        if (lastDate != today)
-        {
-            recipe.dayMedicines = new List<Medicine>(recipe.medicines);
-
-            PlayerPrefs.SetString("LastMessageDate", today);
-            PlayerPrefs.Save();
-            SaveRecipe();
-        }
+        SetNotifications();
     }
 
     private void SpawnNotification(Medicine actualMed)
@@ -66,17 +23,16 @@ public class NotificationsManager : MonoBehaviour
         notificationController.medicine = actualMed;
     }
 
-    private void LoadRecipe()
+    private async void SetNotifications()
     {
-        string path = Application.persistentDataPath + "/recipe.json";
-        string json = File.ReadAllText(path);
-        JsonUtility.FromJsonOverwrite(json, recipe);
-    }
-
-    private void SaveRecipe()
-    {
-        string json = JsonUtility.ToJson(recipe);
-        File.WriteAllText(Application.persistentDataPath + "/recipe.json", json);
-        Debug.Log(Application.persistentDataPath + "/recipe.json");
+        List<Medicine> medicines =  await SupabaseController.GetUserMedicines();
+        foreach(Medicine medicine in medicines)
+        {
+            foreach(ScheduleObj schedule in medicine.schedules)
+            {
+                Notifications.Instance.CreateNotification(medicine.startDay, schedule.time, medicine);
+                Debug.Log("noti creada");
+            }
+        }
     }
 }

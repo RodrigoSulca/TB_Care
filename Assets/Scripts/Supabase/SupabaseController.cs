@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Threading.Tasks;
 using Supabase;
 using System;
+using System.Collections.Generic;
 public class SupabaseController : MonoBehaviour
 {
     public static Guid userId;
@@ -67,7 +68,7 @@ public class SupabaseController : MonoBehaviour
         
     }
 
-    public static async Task<bool> CreateMedicine(string name, string notes)
+    public static async Task<bool> CreateMedicine(string name, string notes, DateTime startDay, List<ScheduleObj> schedules)
     {
         try
         {
@@ -75,10 +76,16 @@ public class SupabaseController : MonoBehaviour
             {
                 UserId = userId,
                 Name = name,
-                Notes = notes
+                Notes = notes,
+                StartDay = startDay
             };
-            await supabase.From<MedicineM>().Insert(medicine);
+            var medResponse = await supabase.From<MedicineM>().Insert(medicine);
+            var createdMed = medResponse.Models[0];
             Debug.Log("Medicine created");
+            foreach(ScheduleObj schedule in schedules)
+            {
+                await CreateSchedule(createdMed.MedicineId,schedule.time,schedule.weekdays);
+            }
             return true;
         }
         catch(Exception e)
@@ -88,7 +95,7 @@ public class SupabaseController : MonoBehaviour
         }
     }
 
-    public static async Task<bool> CreateSchedule(Guid medicineId, TimeSpan hour, int[] weekdays)
+    public static async Task<bool> CreateSchedule(Guid medicineId, string hour, int[] weekdays)
     {
         try
         {
@@ -150,5 +157,45 @@ public class SupabaseController : MonoBehaviour
             Debug.LogError("❌ Error en login: " + e.Message + $"{email},{password}");
             return false;
         }
+    }
+
+    public static async Task<List<Medicine>> GetUserMedicines()
+    {
+            var medicines = new List<Medicine>();
+
+            // 1. Obtener medicinas del usuario
+            var medicineResponse = await supabase
+                .From<MedicineM>() // modelo DB
+                .Filter("user_id", Supabase.Postgrest.Constants.Operator.Equals, supabase.Auth.CurrentUser.Id)
+                .Get();
+
+            foreach (var med in medicineResponse.Models)
+            {
+                Medicine medicine = new()
+                {
+                    name = med.Name,
+                    startDay = med.StartDay,
+                    schedules = new List<ScheduleObj>()
+                };
+                Debug.Log(medicine.name);
+
+                // 2. Obtener schedules de esa medicina
+                var scheduleResponse = await supabase
+                    .From<Schedule>()
+                    .Where(s => s.MedicineId == med.MedicineId)
+                    .Get();
+
+                foreach (var sch in scheduleResponse.Models)
+                {
+                    medicine.schedules.Add(new ScheduleObj
+                    {
+                        time = sch.Time,
+                        weekdays = sch.Weekday
+                    });
+                }
+
+                medicines.Add(medicine);
+            }
+            return medicines;
     }
 }
