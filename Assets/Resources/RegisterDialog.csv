@@ -1,0 +1,4 @@
+Text,Movement,Data
+Bienvenido a TB Care!, None,False
+¿Cual es tu nombre?, None,True
+Gusto en conocerte *nombre*, None, False
