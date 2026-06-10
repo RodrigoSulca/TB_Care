@@ -2,13 +2,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using System;
 public class DialogController : MonoBehaviour
 {
+    public bool hasRecipe;
     [SerializeField] private TextAsset csvFile;
     [SerializeField] private Button nextBtn;
-    [SerializeField] private GameObject dataBtn;
     [SerializeField] private TMP_Text dialogTxt;
     [SerializeField] private GameObject[] credentialPanels;
+
+    [Header("Credentials")]
+    [SerializeField] private TMP_InputField nameField;
+    [SerializeField] private TMP_InputField ageField;
     private int dialogIndex = 0;
     private int credentialsIndex = 0;
 
@@ -31,7 +36,7 @@ public class DialogController : MonoBehaviour
     {
         LoadCSV();
         nextBtn.onClick.AddListener(NextDialog);
-        dataBtn.GetComponent<Button>().onClick.AddListener(NextDialog);
+        //ageField.onValueChanged.AddListener(CheckCredentials);
         NextDialog();
     }
 
@@ -50,7 +55,7 @@ public class DialogController : MonoBehaviour
         {
             if (string.IsNullOrWhiteSpace(lines[i])) continue;
 
-            string[] values = lines[i].Split(',');
+            string[] values = lines[i].Split(';');
 
             if (values.Length >= 3)
             {
@@ -66,7 +71,7 @@ public class DialogController : MonoBehaviour
     {
         if (dialogIndex >= dialogs.Count)
         {
-            Enddialogs();
+            EndDialogs();
             return;
         }
 
@@ -75,13 +80,11 @@ public class DialogController : MonoBehaviour
         if (current.data)
         {
             credentialPanels[credentialsIndex].SetActive(true);
-            dataBtn.SetActive(true);
             nextBtn.interactable = false;
             credentialsIndex++;
         }
         else
         {
-            dataBtn.SetActive(false);
             nextBtn.interactable = true;
         }
         dialogTxt.text = current.dialog;
@@ -89,8 +92,30 @@ public class DialogController : MonoBehaviour
         dialogIndex++;
     }
 
-    void Enddialogs()
+    public void CheckCredentials()
+    {
+        if(nameField.text.Trim() != "" && ageField.text.Trim() != "")
+        {
+            nextBtn.interactable = true;
+        }
+        else
+        {
+            nextBtn.interactable = false;
+        }
+    }
+
+    void EndDialogs()
     {
         gameObject.SetActive(false);
+    }
+
+    public void SkipDialog()
+    {
+        dialogIndex++;
+    }
+
+    public void HasRecipe(bool res)
+    {
+        hasRecipe = res;
     }
 }

@@ -1,4 +1,16 @@
-Text,Movement,Data
-Bienvenido a TB Care!, None,False
-¿Cual es tu nombre?, None,True
-Gusto en conocerte *nombre*, None, False
+Text;Movement;Data
+Hola, bienvenido a TB Care!; None;False
+Mi nombre es nombre; None; False
+¿Podrias darme tu nombre y edad?; None;True
+Gusto en conocerte *nombre*; None;False
+Estoy aqui para ayudarte a usar TB Care; None;False
+Empezemos ingresando tus medicamentos; None;False
+Dime, tienes alguna receta medica?; None;True
+No hay problema!; None;False
+Podras agregarlos en cualquier momento desde el calendario; None;False
+Perfecto!; None;False
+Porfavor, llena los siguientes datos; None;True
+
+
+
+
