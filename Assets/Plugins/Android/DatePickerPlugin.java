@@ -56,4 +56,52 @@ public class DatePickerPlugin {
             dialog.show();
         });
     }
+
+    public void showDatePickerW(Activity activity) {
+        activity.runOnUiThread(() -> {
+
+            Calendar calendar = Calendar.getInstance();
+
+            DatePickerDialog dialog = new DatePickerDialog(activity,
+                (view, year, month, day) -> {
+                    String date = day + "/" + (month + 1) + "/" + year;
+                    UnityPlayer.UnitySendMessage(
+                        "WelcomeController",
+                        "OnDateSelected",
+                        date      
+                    );
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            );
+
+            dialog.show();
+        });
+    }
+
+    public void showTimePickerW(Activity activity) {
+        activity.runOnUiThread(() -> {
+
+            final Calendar calendar = Calendar.getInstance();
+
+            int hour = calendar.get(Calendar.HOUR_OF_DAY);
+            int minute = calendar.get(Calendar.MINUTE);
+
+            TimePickerDialog dialog = new TimePickerDialog(activity,
+                (view, selectedHour, selectedMinute) -> {
+                    String time = selectedHour + ":" + selectedMinute;
+
+                    UnityPlayer.UnitySendMessage(
+                        "WelcomeController",      // mismo GameObject
+                        "OnTimeSelected",   // método en Unity
+                        time
+                    );
+                },
+                hour, minute, true // true = formato 24h
+            );
+
+            dialog.show();
+        });
+    }
 }
