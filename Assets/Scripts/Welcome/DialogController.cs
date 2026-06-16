@@ -13,6 +13,7 @@ public class DialogController : MonoBehaviour
     [SerializeField] private TextAsset csvFile;
     [SerializeField] private TMP_Text dialogTxt;
     [SerializeField] private GameObject[] credentialPanels;
+    [SerializeField] private Animator animator;
 
     [Header("Credentials")]
     [SerializeField] private TMP_InputField nameField;
@@ -109,6 +110,7 @@ public class DialogController : MonoBehaviour
 
         string dialog = current.dialog.Replace("*nombre*", playerName);
         dialogTxt.text = dialog;
+        animator.SetTrigger("Talk");
         
 
         dialogIndex++;
