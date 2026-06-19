@@ -18,6 +18,7 @@ public class DialogController : MonoBehaviour
     [Header("Credentials")]
     [SerializeField] private TMP_InputField nameField;
     [SerializeField] private TMP_InputField ageField;
+    [SerializeField] private TMP_InputField petField;
     [SerializeField] private Button[] recipeBtns;
     [SerializeField] private Sprite selectedSprite;
     [SerializeField] private Sprite originSprite;
@@ -25,6 +26,7 @@ public class DialogController : MonoBehaviour
     [HideInInspector] public int credentialsIndex = 0;
     private int dialogIndex = 0;
     private string playerName;
+    private string petName;
     private bool skiped;
 
     private class DialogData
@@ -73,8 +75,9 @@ public class DialogController : MonoBehaviour
             }
         }
     }
-    void NextDialog()
+    public void NextDialog()
     {
+        string dialog = "";
         if (hasRecipe && !skiped)
         {
             dialogIndex += 2;
@@ -108,11 +111,24 @@ public class DialogController : MonoBehaviour
             nextBtn.interactable = true;
         }
 
-        string dialog = current.dialog.Replace("*nombre*", playerName);
-        dialogTxt.text = dialog;
-        animator.SetTrigger("Talk");
-        
+        if (current.dialog.Contains("*nombre*")){
 
+            dialog = current.dialog.Replace("*nombre*", playerName);
+            dialogTxt.text = dialog;
+
+        }
+        else if (current.dialog.Contains("*mascota*"))
+        {
+            dialog = current.dialog.Replace("*mascota*", petName);
+            dialogTxt.text = dialog;
+        }
+        else
+        {
+            dialogTxt.text = current.dialog;
+        }
+
+
+            animator.SetTrigger("Talk");
         dialogIndex++;
     }
 
@@ -122,6 +138,19 @@ public class DialogController : MonoBehaviour
         {
             nextBtn.interactable = true;
             playerName = nameField.text;
+        }
+        else
+        {
+            nextBtn.interactable = false;
+        }
+    }
+
+    public void CheckPetName()
+    {
+        if(petField.text.Trim() != "")
+        {
+            nextBtn.interactable = true;
+            petName = petField.text;
         }
         else
         {

@@ -1,8 +1,8 @@
 Text;Movement;Data
 Hola, bienvenido a TB Care!;None;False
-La aplicación para audar en tu tratamiento contra la tuberculosis;None;False
-Mi nombre es nombre;None;False
-Te hare una pequeña introducción;None;False
+La app para complementar tu tratamiento contra la tuberculosis;None;False
+Mi nombre es Dock;None;False
+Te dare una pequeña introducción;None;False
 Podrias darme tu nombre y edad?;None;True
 Gusto en conocerte *nombre*;None;False
 Empezemos ingresando tus medicamentos;None;False
@@ -15,11 +15,11 @@ Ahora completa las fechas y horas correspondientes;None;True
 Por ultimo, puedes agregar anotaciones a tu medicamento;None;True
 Listo! Creaste tu primer medicamento en TB Care;None;False
 Podras crear nuevos medicamentos en el calendario;None;False
-Esto nos servira para enviarte recordatorios para tus medicamentos;None;False
+Asi podremos avisarte cuando debas tomarlos;None;False
 Ahora tengo un regalo para ti;None;False
-Pulsa sobre el para abrirlo;None;False
-Es una mascota! Te acompañara a lo largo de tu tratamiento;None;False
-Deberias ponerle un nombre;None;False
+Pulsa sobre el para abrirlo;None;True
+Es una mascota! Te acompañara en tu tratamiento;None;False
+Deberias ponerle un nombre;None;True
 Eso seria todo por mi parte;None;False
 Deberas seguir explorando la app por tu cuenta;None;False
 Mucha suerte y cuida de *mascota*!;None;False
