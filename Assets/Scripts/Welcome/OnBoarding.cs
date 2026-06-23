@@ -10,7 +10,6 @@ public class OnBoarding : MonoBehaviour
     [SerializeField] private TMP_Text carouselTxt;
     [SerializeField] private string[] carouselTexts;
 
-    [SerializeField] private Button[] carouselBtns;
     [SerializeField] private Image carouselCircles;
 
     private int carouselIndex;
@@ -18,33 +17,19 @@ public class OnBoarding : MonoBehaviour
 
     public void NextBoard()
     {
-        if (carouselIndex < carouselTexts.Length) 
+        if (carouselIndex < carouselTexts.Length-1) 
         {
             carouselIndex++;
-            carouselImg.sprite = carouselSprites[carouselIndex];
-            carouselTxt.text = carouselTexts[carouselIndex];
             circleFill *= 3;
-            carouselCircles.fillAmount = circleFill;
         }
         else
         {
-            carouselBtns[1].interactable = false;
+            carouselIndex = 0;
+            circleFill = 0.2f;
         }
-    }
 
-    public void PrevBoard() 
-    {
-        if (carouselIndex > 0)
-        {
-            carouselIndex--;
-            carouselImg.sprite = carouselSprites[carouselIndex];
-            carouselTxt.text = carouselTexts[carouselIndex];
-            circleFill/= 3;
-            carouselCircles.fillAmount = circleFill;
-        }
-        else
-        {
-            carouselBtns[0].interactable = false;
-        }
+        carouselImg.sprite = carouselSprites[carouselIndex];
+        carouselTxt.text = carouselTexts[carouselIndex];
+        carouselCircles.fillAmount = circleFill;
     }
 }
